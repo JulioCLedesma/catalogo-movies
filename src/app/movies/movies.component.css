@@ -1,0 +1,6 @@
+body {
+   /* background-image: url('ruta_de_tu_imagen_de_fondo');  Agrega la imagen de fondo aquí */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }

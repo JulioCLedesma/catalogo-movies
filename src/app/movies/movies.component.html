@@ -1,0 +1,92 @@
+<div class="container">
+    <!-- Header -->
+    <header class="d-flex justify-content-between align-items-center py-3">
+        <!-- Imagen del nombre del catálogo -->
+        <!-- Agrega la imagen aquí -->
+        <img src="ruta_de_tu_imagen" alt="Logo del Catálogo" class="img-fluid" style="max-width: 150px;">
+        <h1 class="text-center">Catálogo de Películas</h1>
+    </header>
+
+ <!-- Barra de navegación -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Descripción del catálogo de películas -->
+    <section class="my-4">
+        <p class="text-center">
+            Bienvenido al catálogo de películas, donde encontrarás una amplia selección de películas de todos los géneros, desde clásicos hasta estrenos recientes. ¡Explora y disfruta de nuestras recomendaciones!
+        </p>
+    </section>
+
+    <!-- Listado de películas -->
+    <h2 class="text-center my-4">Listado General de Películas</h2>
+    
+    <div *ngIf="movies$ | async as movies; else loading">
+        <div class="row">
+            <!-- Iteramos sobre las películas obtenidas de la API -->
+            <div class="col-md-4 mb-4" *ngFor="let movie of movies">
+                <div class="card h-100">
+                    <!-- Imagen de la película -->
+                    <!-- Agrega la imagen del cover de la película -->
+                    <img [src]="movie.cover" class="card-img-top" alt="{{movie.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <p class="card-text"><strong>Año:</strong> {{ movie.year }}</p>
+                        <p class="card-text">{{ movie.synopsis }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Template para mostrar un mensaje de carga -->
+    <ng-template #loading>
+        <p class="text-center">Cargando películas...</p>
+    </ng-template>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5">
+        <p><strong>Materia:</strong> Desarrollo Web</p>
+        <p><strong>Nombre:</strong> Julio César Ledesma Martínez</p>
+        <p><strong>Código:</strong> TU_CÓDIGO</p>
+        <p><strong>Correo:</strong> julio.ledesma-udgvirtual.udg.mx </p>
+    </footer>
+</div>
+
+
+
+  
